@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="INFO">
+    <!--日志级别：TRACE < DEBUG < INFO < WARN < ERROR < FATAL-->
+    <!--如果设置为WARN，则低于WARN的信息都不会输出-->
+    <Properties>
+        <Property name="LOG_HOME">G:/CreativeJava/Month10/SuperMinecraftServerManager/logs</Property>
+        <Property name="LOG_FILE_NAME">cu-upcc-ccc1-provider</Property>
+        <Property name="LOG_LEVEL">INFO</Property>
+        <Property name="APPENDER_NAME">APP-PROVIDER</Property>
+        <Property name="LOGGER_ADDITIVITY">true</Property>
+        <Property name="POLICY_TIME_BASED_INTERVAL">1</Property>
+        <Property name="DELETE_MAX_DEPTH">1</Property>
+        <Property name="DELETE_IF_FILE_NAME">*.log-*</Property>
+        <Property name="DELETE_IF_LAST_MODIFIED_AGE">24H</Property>
+    </Properties>
+
+
+    <Appenders>
+        <Console name="CONSOLE" target="SYSTEM_OUT">
+            <!--            <PatternLayout charset="UTF-8" pattern="[%-5d{HH:mm:ss} %p]: %m%n" />-->
+            <!--            <PatternLayout pattern="%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n"/>-->
+            <PatternLayout pattern="[%-5d{HH:mm:ss} %p]: %m%n"/>
+        </Console>
+        <File name="BasicLogger" fileName="./logs/info.log">
+            <PatternLayout pattern="[%-5d{yyyy-MM-dd HH:mm:ss.SSS} %p]: %m (%t:%r)%n"/>
+        </File>
+    </Appenders>
+    <Loggers>
+        <Logger name="com.axolotl.BasicLogger" level="INFO" additivity="true">
+            <AppenderRef ref="BasicLogger"/>
+            <!--            <AppenderRef ref="CONSOLE"/>-->
+        </Logger>
+        <!--        <Root level="INFO">-->
+        <!--            <AppenderRef ref="CONSOLE"/>-->
+        <!--            <AppenderRef ref="aaaLogger"/>-->
+        <!--        </Root>-->
+
+        <Root level="INFO">
+            <AppenderRef ref="CONSOLE"/>
+        </Root>
+    </Loggers>
+</Configuration>
